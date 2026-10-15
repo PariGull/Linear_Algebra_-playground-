@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linear Algebra Playground</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Linear Algebra <span>Playground</span></h1>
+    <p>Visualize transformations, eigenvectors, and matrix operations</p>
+  </header>
+
+  <nav>
+    <button class="tab active" data-tab="transform">2D Transformations</button>
+    <button class="tab" data-tab="calc">Matrix Calculator</button>
+  </nav>
+
+  <main>
+    <!-- TAB 1: 2D TRANSFORMATIONS -->
+    <section id="transform" class="panel active">
+      <div class="card controls">
+        <h2>Matrix A</h2>
+        <div class="grid2">
+          <input type="number" id="a" value="1" step="0.1">
+          <input type="number" id="b" value="1" step="0.1">
+          <input type="number" id="c" value="0" step="0.1">
+          <input type="number" id="d" value="1" step="0.1">
+        </div>
+        <p class="hint">Columns of A show where <b class="ci">i&#770;</b> and <b class="cj">j&#770;</b> land.</p>
+
+        <label>Animate from identity to A
+          <input type="range" id="t" min="0" max="1" step="0.01" value="1">
+        </label>
+
+        <h3>Presets</h3>
+        <div class="presets">
+          <button data-p="1,0,0,1">Identity</button>
+          <button data-p="rot">Rotate 45&deg;</button>
+          <button data-p="2,0,0,0.5">Scale</button>
+          <button data-p="1,1,0,1">Shear</button>
+          <button data-p="1,0,0,-1">Reflect</button>
+          <button data-p="1,1,1,1">Singular</button>
+        </div>
+
+        <h3>Properties</h3>
+        <div id="info"></div>
+      </div>
+      <canvas id="canvas" width="600" height="600"></canvas>
+    </section>
+
+    <!-- TAB 2: MATRIX CALCULATOR -->
+    <section id="calc" class="panel">
+      <div class="card">
+        <label>Size:
+          <select id="size">
+            <option value="2">2 &times; 2</option>
+            <option value="3" selected>3 &times; 3</option>
+            <option value="4">4 &times; 4</option>
+          </select>
+        </label>
+        <div class="mats">
+          <div><h2>Matrix A</h2><div id="gridA" class="grid"></div></div>
+          <div><h2>Matrix B</h2><div id="gridB" class="grid"></div></div>
+        </div>
+        <div class="ops">
+          <button data-op="add">A + B</button>
+          <button data-op="sub">A &minus; B</button>
+          <button data-op="mul">A &times; B</button>
+          <button data-op="det">det(A)</button>
+          <button data-op="inv">A&#8315;&sup1;</button>
+          <button data-op="tr">A&#7511;</button>
+        </div>
+        <div id="result" class="result">Choose an operation.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Built with HTML, CSS and JavaScript</footer>
+  <script src="script.js"></script>
+</body>
+  </html>
+  
